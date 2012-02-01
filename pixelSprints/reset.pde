@@ -14,4 +14,12 @@ void reset() {
   lastCountDownMillis = millis();
   
   win = 310;
+  
+  count3off();
+  count2off();
+  count1off();
+  greenOff0();
+  greenOff1();
+  redOff0();
+  redOff1();
 }

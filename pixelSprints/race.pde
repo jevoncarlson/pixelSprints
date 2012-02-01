@@ -9,7 +9,7 @@ void race()
        finish0 = currentTimeMillis;          
            
        digitalWrite(goLed0, LOW);
-       redLight0();
+       redOn0();
      }
    }
    previousValue0 = value0;
@@ -21,7 +21,7 @@ void race()
        finish1 = currentTimeMillis;          
            
        digitalWrite(goLed1, LOW);
-       redLight1();
+       redOn1();
      }
    }
    previousValue1 = value1;

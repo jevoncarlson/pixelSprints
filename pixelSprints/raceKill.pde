@@ -5,5 +5,8 @@ void raceKill() {
   
   digitalWrite(goLed0,LOW);
   digitalWrite(goLed1,LOW);
+  
+  redOn0();
+  redOn1();
 
 }
