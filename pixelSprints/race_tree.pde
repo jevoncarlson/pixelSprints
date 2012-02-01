@@ -31,15 +31,6 @@ void redLight0(){
 }
 
 void redLight1(){
-  GD.fill(atxy(25,36), BG_BLACK, 2);
-  GD.fill(atxy(25,37), BG_BLACK, 2);
-  GD.fill(atxy(25,33), BG_BLACK, 2);
-  GD.fill(atxy(25,34), BG_BLACK, 2);
-  GD.fill(atxy(25,30), BG_BLACK, 2);
-  GD.fill(atxy(25,31), BG_BLACK, 2);
-  GD.fill(atxy(25,27), BG_BLACK, 2);
-  GD.fill(atxy(25,28), BG_BLACK, 2);
-  GD.fill(atxy(25,25), BG_RED, 2);
-  GD.fill(atxy(25,26), BG_RED, 2);
+  draw_pixelSprintsSprites(200, 104, 2, 0);
 }
 

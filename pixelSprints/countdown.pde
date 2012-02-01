@@ -1,4 +1,5 @@
-void countdown() {
+void countdown()
+{
   if (raceStarting) {
     if((millis() - lastCountDownMillis) > 1000){
       lastCountDown -= 1;

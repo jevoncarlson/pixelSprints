@@ -13,7 +13,7 @@ pin 6  - player 1 led
 pin 7  - player 2 led
 pin 8
 pin 9  - SPI select
-pin 10
+pin 10 - button led
 pin 11 - SPI MOSI
 pin 12 - SPI MISO
 pin 13 - SPI SCK
@@ -42,6 +42,7 @@ jevon elliott carlson
 
 //define pins
 int button0 = 3; // start stop button
+int buttonLed0 = 10; // button led
 int sensor0 = 4; // player 1
 int sensor1 = 5; // player 2
 int goLed0 = 6;  // player 1 start stop light
@@ -53,10 +54,13 @@ int goLed1 = 7;  // player 2 start stop light
 // booleans, bytes
 boolean raceStarted = false;
 boolean raceStarting = false;
-boolean buttonState0 = false;
-boolean lastButtonState0 = false;
-boolean buttonPushCounter0 = false;
-boolean buttonPushCounter0 = false;
+
+boolean buttonState0 = 0;
+boolean lastButtonState0 = 0;
+boolean buttonVar0 = 0;
+
+boolean goVal = false;
+
 boolean previousValue0 = HIGH;
 boolean previousValue1 = HIGH;
 boolean value0 = 0;
@@ -65,6 +69,7 @@ boolean value1 = 0;
 // chars, bytes
 
 // integers, 2 bytes
+
 int velo0 = 0;
 int velo1 = 0;
 int lastCountDown;   
@@ -104,11 +109,15 @@ void setup() {
   pinMode(goLed1, OUTPUT);
   digitalWrite(goLed0, LOW);
   digitalWrite(goLed1, LOW);
+  
   pinMode(sensor0, INPUT);
   pinMode(sensor1, INPUT);
   digitalWrite(sensor0, HIGH);
   digitalWrite(sensor1, HIGH);
+  
   pinMode(button0, INPUT);
+  digitalWrite(button0, HIGH);
+  pinMode(buttonLed0, OUTPUT);
   
   //video setup ___________________
   GD.begin();
@@ -121,20 +130,31 @@ void setup() {
 }
 
 // loop________________________________________________
-void loop()
-{
-  button();
+void loop() {
+  button(); // check for button press
+  mph(); // calculate speeds
   
-  if (raceStarting) { 
-  countdown();
-  }
-  
-  if (raceStarted) 
-  {
+  // three states  starting, started, or other
+  if (raceStarting) {
+    countdown();
+    
+    if (goVal == false){
+      raceStarting = false;
+      reset();
+    }
+  } else if (raceStarted){
     race();
     finish();
     winner();
-    mph();
+    
+    if (goVal == false){
+      raceStarted = false;
+      reset();
+    }
+  } else {
+    if (goVal == true){
+      raceStarting = true;
+    }
   }
  
   // GD.waitvblank();

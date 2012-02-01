@@ -1,5 +1,5 @@
 // reseting the variable values to 0, and the position of the win sprite
-void startReset() {
+void reset() {
   
   ticks0 = 0;
   ticks1 = 0;

@@ -1,26 +1,24 @@
-void buttonStateChange() {
+void button() {
   buttonState0 = digitalRead(button0);
   if (buttonState0 != lastButtonState0) {
-    if (buttonState == HIGH) {
-      buttonPushCounter0 != lastPushCounter0;
-
+    if (buttonState0 == LOW) {
+      buttonVar0 = !buttonVar0;
     } 
     else {
-      // if the current state is LOW then the button
-      // wend from on to off:
+      
     }
   }
 
   lastButtonState0 = buttonState0;
   
-  if (buttonPushCounter0 == 1) {
-    digitalWrite(ledPin, HIGH);
+  if (buttonVar0 == true) {
+  goVal = true;
+  digitalWrite(buttonLed0, HIGH);
   } else {
-   digitalWrite(ledPin, LOW);
+  goVal = false;
+  digitalWrite(buttonLed0, LOW);
   }
-  
 }
-
 
 
 
