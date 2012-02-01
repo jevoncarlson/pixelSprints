@@ -18,7 +18,7 @@ pin 11 - SPI MOSI
 pin 12 - SPI MISO
 pin 13 - SPI SCK
 
-jan, 11, 2012
+Jan, 11, 2012
 jevon elliott carlson
 
 */
@@ -135,25 +135,21 @@ void loop() {
   mph(); // calculate speeds
   
   // three states  starting, started, or other
-  if (raceStarting) {
+  if (raceStarting) { // get ready
     countdown();
-    
-    if (goVal == false){
-      raceStarting = false;
-      reset();
+    if (goVal == false){ // change to false kills the race
+      raceKill();
     }
-  } else if (raceStarted){
+  } else if (raceStarted){ // it's go time
     race();
     finish();
-    winner();
-    
-    if (goVal == false){
-      raceStarted = false;
-      reset();
+    if (goVal == false){ // change to false kills the race
+      raceKill();
     }
   } else {
-    if (goVal == true){
+    if (goVal == true){ // change to true when other = starting
       raceStarting = true;
+      reset();
     }
   }
  

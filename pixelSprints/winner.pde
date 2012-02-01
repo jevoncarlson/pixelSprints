@@ -1,3 +1,5 @@
+//compare times for awarding
+
 void winner() {
   if(finish0 < finish1) {
     win = 132;
