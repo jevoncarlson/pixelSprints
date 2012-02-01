@@ -1,1 +1,19 @@
-goldsprints software for arduino with gameduino and opensprints shield.
+goldsprints bike racing software for arduino
+using modified opensprints hardware for input
+and gameduino vga control shield for output
+
+in order for the opensprints hardware to work with the gameduino hardware it has to be modified in a few ways. Leave port one alone and tape it off you don't want to accidentally use it, however if you leave the traces you can still use the board for other opensprints based software. Port 2 is left alone as well and used for a remote button to start and stop the race, a race status led can be made on pin 10 also. Ports 3 and 4 have had their led pins rerouted to pin 6 and 7 to free up the SPI interface. Also the status led resistor connected to pin 13 on the opensprints board should be removed, I don't know if it is a problem but why burden the SPI interface.
+
+Here is the modified pinout for arduino pins.
+pin 2  - io interupt
+pin 3  - start stop button , this uses the internal pull-up resistors, use a momentary connected to ground.
+pin 4  - player 1 sensor
+pin 5  - player 2 sensor
+pin 6  - player 1 led , this is a reroute.
+pin 7  - player 2 led , as is this.
+pin 8
+pin 9  - SPI select
+pin 10 - button led , will be in the code eventually.
+pin 11 - SPI MOSI
+pin 12 - SPI MISO
+pin 13 - SPI SCK
