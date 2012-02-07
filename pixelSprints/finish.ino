@@ -3,6 +3,7 @@ void finish() {
     if(raceStarted) {
       raceStarted = false;
       winner();
+      goVal = false;
     }
   } 
 }

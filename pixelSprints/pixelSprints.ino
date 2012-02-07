@@ -30,12 +30,8 @@ jevon elliott carlson
 #include "pixelSprintsSprites.h"
 
 //define background calls
-#define BG_YELLOW 68
-#define BG_GREEN 69
-#define BG_RED 70
-#define BG_CYAN 10
-#define BG_RZERO 48
-#define BG_CZERO 58
+#define BG_RZERO 139
+#define BG_CZERO 149
 #define BG_BLACK 0
 
 //define sprite calls
@@ -75,7 +71,7 @@ int velo1 = 0;
 int lastCountDown;   
 int raceLengthTicks = 1904;
 int updateInterval = 250;
-int win = 16;
+int win = 320;
 int pos0 = 24;
 int pos1 = 24;
 
@@ -154,14 +150,14 @@ void loop() {
   }
  
   // GD.waitvblank();
-  draw_red_time(atxy(5,12), finish0 );
-  draw_red_speed(atxy(41,12), mph0);
-  draw_cyan_time(atxy(5,25), finish1 );
-  draw_cyan_speed(atxy(41,25), mph1);
+  draw_red_time(atxy(3,5), finish0 );
+  draw_red_speed(atxy(5,9), mph0);
+  draw_cyan_time(atxy(38,5), finish1 );
+  draw_cyan_speed(atxy(40,9), mph1);
   
   GD.__wstartspr(0);
-  draw_pixelSprintsSprites(((ticks0 / 5.95) + 24), 130, 0, 0);
-  draw_pixelSprintsSprites(((ticks1 / 5.95) + 24), 170, 1, 0);
+  draw_pixelSprintsSprites(((ticks0 / 5.95) + 24), 180, 0, 0);
+  draw_pixelSprintsSprites(((ticks1 / 5.95) + 24), 220, 1, 0);
   draw_pixelSprintsSprites(380, win, 2, 0);
   GD.__end();
   

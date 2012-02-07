@@ -12,11 +12,11 @@ void button() {
   lastButtonState0 = buttonState0;
   
   if (buttonVar0 == true) {
-  goVal = true;
-  digitalWrite(buttonLed0, HIGH);
+    goVal = true;
+    digitalWrite(buttonLed0, HIGH);
   } else {
-  goVal = false;
-  digitalWrite(buttonLed0, LOW);
+    goVal = false;
+    digitalWrite(buttonLed0, LOW);
   }
 }
 
